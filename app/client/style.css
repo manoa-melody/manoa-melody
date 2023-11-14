@@ -1,10 +1,12 @@
 /* Use Open Sans as the default sans serif font. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-bg: #10934d;
+  --matr-navbar-bg-rgb: 255, 255, 255;
 }
 
 /* Change bootstrap variable values.
@@ -12,6 +14,9 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  --bs-dark-rgb: 75, 75, 75;
+  --bs-body-bg: #10934d;
+  --bs-body-color: white;
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -25,4 +30,16 @@ body {
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+a.nav-link {
+  color: black;
+}
+
+h2 {
+  font-family: Courgette, sans-serif;
+}
+
+footer {
+  color: white;
 }
