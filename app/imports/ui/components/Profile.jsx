@@ -5,7 +5,7 @@ import { Card, Image } from 'react-bootstrap';
 /** Renders Profile Card * */
 const Profile = ({ profile }) => (
   <Card className="h-100">
-    <Card.Header>
+    <Card.Header className="text-center">
       <Image src={profile.image} width={75} />
       <Card.Title>{profile.firstName} {profile.lastName}</Card.Title>
       <Card.Subtitle>Insert interests here :P</Card.Subtitle>
