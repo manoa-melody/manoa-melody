@@ -11,7 +11,7 @@ const ProfileCard = ({ profile }) => (
       <Card.Subtitle>Insert interests here :P</Card.Subtitle>
     </Card.Header>
     <Card.Body>
-      <Card.Text>{profile.bio}</Card.Text>
+      <Card.Text>{profile.description}</Card.Text>
 
     </Card.Body>
   </Card>
@@ -22,11 +22,11 @@ ProfileCard.propTypes = {
   profile: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
+    email: PropTypes.string,
     image: PropTypes.string,
-    bio: PropTypes.string,
-    instruments: PropTypes.arrayOf(PropTypes.oneOf([])),
-    genres: PropTypes.arrayOf(PropTypes.oneOf([])),
-    _id: PropTypes.string,
+    description: PropTypes.string,
+    // instruments: PropTypes.arrayOf(PropTypes.oneOf([])),
+    // genres: PropTypes.arrayOf(PropTypes.oneOf([])),
   }).isRequired,
 };
 
