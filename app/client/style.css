@@ -7,6 +7,7 @@
 :root {
   --matr-navbar-bg: #10934d;
   --matr-navbar-bg-rgb: 255, 255, 255;
+  --matr-navbar-highlight-text: #10934d;
 }
 
 /* Change bootstrap variable values.
@@ -17,6 +18,12 @@ body {
   --bs-dark-rgb: 75, 75, 75;
   --bs-body-bg: #10934d;
   --bs-body-color: white;
+}
+
+body .navbar {
+  --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
+  --bs-navbar-active-color: var(--matr-navbar-highlight-text);
+  --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -36,10 +43,58 @@ a.nav-link {
   color: black;
 }
 
-h2 {
+#title {
   font-family: Courgette, sans-serif;
 }
 
 footer {
   color: white;
+}
+
+body .card {
+  --bs-card-bg: white;
+}
+
+body .form-control {
+  background-color: white;
+  color: black;
+}
+
+body .form-control:focus {
+  background-color: white;
+  color: black
+}
+
+body .btn-primary {
+  --bs-btn-bg: #10934d;
+  --bs-btn-border-color: #10934d;
+  --bs-btn-hover-bg: #10934D;
+  --bs-btn-hover-border-color: #09733c;
+  --bs-btn-active-bg: #09733c;
+  --bs-btn-active-border-color: #09733c;
+  --bs-btn-disabled-bg: #10934d;
+  --bs-btn-disabled-border-color: #10934d;
+}
+
+#signin-page .alert-light, #signup-page .alert-light {
+  --bs-alert-bg: white;
+}
+
+body .alert {
+  --bs-alert-border: none;
+}
+
+body .click-here {
+  --bs-alert-padding-x: 0;
+  --bs-alert-padding-y: 0;
+  padding-top: 1em;
+  color: black;
+}
+
+body a {
+  color: black;
+}
+
+.card-body label {
+  color: black;
 }
