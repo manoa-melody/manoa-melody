@@ -94,3 +94,7 @@ body .click-here {
 body a {
   color: black;
 }
+
+.card-body label {
+  color: black;
+}
