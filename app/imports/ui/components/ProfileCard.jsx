@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
 
-/** Renders Profile Card * */
+/** Renders ProfileCard Card * */
 const ProfileCard = ({ profile }) => (
   <Card className="h-100">
     <Card.Header>

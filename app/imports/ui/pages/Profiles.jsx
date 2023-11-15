@@ -3,7 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Profile from '../components/ProfileCard';
+import ProfileCard from '../components/ProfileCard';
+
 // import { Profile } IMPORT PROFILE COLLECTION
 
 /* Renders a table containing all of the Profile documents. Use <StuffItem> to render each row. */
@@ -32,7 +33,7 @@ const Profiles = () => {
             <h2>List Contacts</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {profiles.map((profile) => (<Col key={profile._id}><Profile profile={profile} /></Col>))}
+            {profiles.map((profile) => (<Col key={profile._id}><ProfileCard profile={profile} /></Col>))}
           </Row>
         </Col>
       </Row>
