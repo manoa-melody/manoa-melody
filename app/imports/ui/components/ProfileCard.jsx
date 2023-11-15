@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
 
 /** Renders Profile Card * */
-const Profile = ({ profile }) => (
+const ProfileCard = ({ profile }) => (
   <Card className="h-100">
     <Card.Header>
       <Image src={profile.image} width={75} />
@@ -18,7 +18,7 @@ const Profile = ({ profile }) => (
 );
 
 // Require a document to be passed to this component.
-Profile.propTypes = {
+ProfileCard.propTypes = {
   profile: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
@@ -30,4 +30,4 @@ Profile.propTypes = {
   }).isRequired,
 };
 
-export default Profile;
+export default ProfileCard;
