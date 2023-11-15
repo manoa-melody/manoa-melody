@@ -43,3 +43,47 @@ h2 {
 footer {
   color: white;
 }
+
+body .card {
+  --bs-card-bg: white;
+}
+
+body .form-control {
+  background-color: white;
+  color: black;
+}
+
+body .form-control:focus {
+  background-color: white;
+  color: black
+}
+
+body .btn-primary {
+  --bs-btn-bg: #10934d;
+  --bs-btn-border-color: #10934d;
+  --bs-btn-hover-bg: #10934D;
+  --bs-btn-hover-border-color: #09733c;
+  --bs-btn-active-bg: #09733c;
+  --bs-btn-active-border-color: #09733c;
+  --bs-btn-disabled-bg: #10934d;
+  --bs-btn-disabled-border-color: #10934d;
+}
+
+#signin-page .alert-light, #signup-page .alert-light {
+  --bs-alert-bg: white;
+}
+
+body .alert {
+  --bs-alert-border: none;
+}
+
+body .click-here {
+  --bs-alert-padding-x: 0;
+  --bs-alert-padding-y: 0;
+  padding-top: 1em;
+  color: black;
+}
+
+body a {
+  color: black;
+}

@@ -45,29 +45,31 @@ const SignIn = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2>Login to your account</h2>
+            <h2>Sign In</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
-                <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
-                <ErrorsField />
-                <SubmitField id="signin-form-submit" />
-              </Card.Body>
-            </Card>
+            <Container className="form-bg">
+              <Card>
+                <Card.Body>
+                  <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
+                  <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
+                  <ErrorsField />
+                  <SubmitField id="signin-form-submit" />
+                  <Alert variant="light" className="click-here">
+                    Need an account? <Link to="/signup">SIGN UP</Link>
+                  </Alert>
+                  {error === '' ? (
+                    ''
+                  ) : (
+                    <Alert variant="danger">
+                      <Alert.Heading>Login was not successful</Alert.Heading>
+                      {error}
+                    </Alert>
+                  )}
+                </Card.Body>
+              </Card>
+            </Container>
           </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
-          </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Login was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
         </Col>
       </Row>
     </Container>
