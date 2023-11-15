@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import { BoxArrowRight } from 'react-bootstrap-icons';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -16,7 +16,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>Mānoa Melody</h2>
+          <h2 id="title">Mānoa Melody</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -27,7 +27,7 @@ const NavBar = () => {
               <Nav.Link as={NavLink} to="/profiles" key="profiles">Profiles</Nav.Link>,
               <Nav.Link as={NavLink} to="/my-events" key="my-events">My Events</Nav.Link>,
             ]) : ''}
-            {!Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+            {currentUser && !Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link as={NavLink} to="/my-profile" key="my-profile">My Profile</Nav.Link>
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
@@ -35,20 +35,10 @@ const NavBar = () => {
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">
-            {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login">
-                <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
-                  <PersonFill />
-                  Sign
-                  in
-                </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
-                  <PersonPlusFill />
-                  Sign
-                  up
-                </NavDropdown.Item>
-              </NavDropdown>
-            ) : (
+            {currentUser === '' ? ([
+              <Nav.Link as={NavLink} to="/signin" key="signin">Sign In</Nav.Link>,
+              <Nav.Link as={NavLink} to="/signup" key="signup">Sign Up</Nav.Link>
+            ]) : (
               <NavDropdown id="navbar-current-user" title={currentUser}>
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
                   <BoxArrowRight />

@@ -7,7 +7,7 @@ const Footer = () => (
     <Container>
       <Row>
         <Col xs={6} className="text-center">
-          <h2>Mānoa Melody</h2>
+          <h1 id="title">Mānoa Melody</h1>
         </Col>
         <Col>
           Contact Us

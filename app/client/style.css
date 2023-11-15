@@ -7,6 +7,7 @@
 :root {
   --matr-navbar-bg: #10934d;
   --matr-navbar-bg-rgb: 255, 255, 255;
+  --matr-navbar-highlight-text: #10934d;
 }
 
 /* Change bootstrap variable values.
@@ -17,6 +18,12 @@ body {
   --bs-dark-rgb: 75, 75, 75;
   --bs-body-bg: #10934d;
   --bs-body-color: white;
+}
+
+body .navbar {
+  --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
+  --bs-navbar-active-color: var(--matr-navbar-highlight-text);
+  --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -36,7 +43,7 @@ a.nav-link {
   color: black;
 }
 
-h2 {
+#title {
   font-family: Courgette, sans-serif;
 }
 
