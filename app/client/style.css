@@ -98,3 +98,11 @@ body a {
 .card-body label {
   color: black;
 }
+
+.bg-image {
+  background-image: url("https://cdn.discordapp.com/attachments/1170202515875299348/1174256454065213480/campus-manoa-valley.jpg?ex=6566ee8b&is=6554798b&hm=8cc48bfb2b8fe014be92570e9a3307bb6cb03cbd9af9b471b8b5dbca316f2ae2&");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
