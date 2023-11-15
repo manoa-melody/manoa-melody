@@ -1,14 +1,12 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import About from '../components/About';
 
 /* A home landing page for new users. */
 const ManoaMelody = () => (
-  <div className="d-flex flex-column min-vh-100">
-    {
-      // Navigation bar will be in App.jsx
-      // <About />
-      // Footer will be in App.jsx
-    }
-  </div>
+  <Container fluid className="py-3">
+    <About />
+  </Container>
 );
 
 export default ManoaMelody;
