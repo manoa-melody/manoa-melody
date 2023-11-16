@@ -118,3 +118,11 @@ body a {
 .card-text {
   color: black;
 }
+
+body .text-success {
+  color: black!important;
+}
+
+body input {
+  margin-right: 1em;
+}
