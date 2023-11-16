@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
-
+import { Events } from '../../api/event/Event';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -29,5 +29,19 @@ if (Profiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.forEach(data => addProfile(data));
+  }
+}
+
+// Initialize the database with a default event document.
+const addEvent = (event) => {
+  console.log(`  Adding: ${event.name} ${event.dateTime}`);
+  Events.collection.insert(event);
+};
+
+// Initialize the EventsCollection if empty.
+if (Events.collection.find().count() === 0) {
+  if (Meteor.settings.defaultEvents) {
+    console.log('Creating default events.');
+    Meteor.settings.defaultEvents.forEach(event => addEvent(event));
   }
 }
