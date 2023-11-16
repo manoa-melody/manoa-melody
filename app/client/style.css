@@ -106,3 +106,15 @@ body a {
   background-size: cover;
   height: 100%;
 }
+
+.card-title {
+  --bs-card-title-color: black;
+}
+
+.card-subtitle {
+  --bs-card-subtitle-color: black;
+}
+
+.card-text {
+  color: black;
+}
