@@ -17,9 +17,9 @@
   ],
 
   "defaultProfiles": [
-    { "firstName": "Kristine", "lastName":  "Orpilla", "email":  "kristineorpilla@gmail.com", "image":  "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1xw:0.74975xh;center,top&resize=1200:*", "description":  "i am a musician B)"},
-    { "firstName": "Shedrick", "lastName":  "Ulibas", "email":  "shedrickulibas@gmail.com", "image":  "https://pyxis.nymag.com/v1/imgs/6a9/2a3/6c37ee37a2473f12b6dc4a703a50381993-09-clifford.2x.rsquare.w330.jpg", "description":  "i am also a musician B)"},
-    { "firstName": "Destiny", "lastName":  "Shishido", "email":  "destinyshishido@gmail.com", "image":  "https://pyxis.nymag.com/v1/imgs/f86/d09/c7ba73adf518500982957a6eef82eaa46e-30-kuma.jpg", "description":  "i am a talking dog B)"}
+    { "displayName": "Kristine Orpilla", "email":  "kristineorpilla@gmail.com", "image":  "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1xw:0.74975xh;center,top&resize=1200:*", "bio":  "i am a musician B)"},
+    { "displayName": "Shedrick Ulibas", "email":  "shedrickulibas@gmail.com", "image":  "https://pyxis.nymag.com/v1/imgs/6a9/2a3/6c37ee37a2473f12b6dc4a703a50381993-09-clifford.2x.rsquare.w330.jpg", "bio":  "i am also a musician B)"},
+    { "displayName": "Destiny Shishido", "email":  "destinyshishido@gmail.com", "image":  "https://cdn.justjaredjr.com/wp-content/uploads/2014/02/dog-stills/dog-blog-stan-runs-away-stills-02.jpg", "bio":  "i am a talking dog B)"}
   ],
 
   "defaultEvents": [
