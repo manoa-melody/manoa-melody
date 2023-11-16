@@ -23,6 +23,8 @@
   ],
 
   "defaultEvents": [
-    { "title":  "Event 1", "description":  "the description o:", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"}
+    { "name":  "Event 1", "location": "UH Manoa", "description":  "the description o:", "dateTime": "2023-12-01T09:00:00", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"},
+    { "name":  "Event 2", "location": "UH Manoa", "description":  "the description o:", "dateTime": "2023-12-01T09:00:00", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"},
+    { "name":  "Event 2", "location": "UH Manoa", "description":  "the description o:", "dateTime": "2023-12-01T09:00:00", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"}
   ]
 }
