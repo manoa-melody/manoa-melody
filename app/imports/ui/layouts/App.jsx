@@ -18,6 +18,8 @@ import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import AddEvent from '../pages/AddEvent';
 import ListProfiles from '../pages/ListProfiles';
+import ListEvents from '../pages/ListEvents';
+import SetUp from '../pages/SetUp';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -37,7 +39,9 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
+          <Route path="/setup" element={<ProtectedRoute><SetUp /></ProtectedRoute>} />
           <Route path="/profiles" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} />
+          <Route path="/events" element={<ProtectedRoute><ListEvents /></ProtectedRoute>} />
           <Route path="/add-event" element={<ProtectedRoute><AddEvent /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
