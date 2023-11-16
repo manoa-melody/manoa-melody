@@ -3,16 +3,23 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../api/profile/Profiles';
 import { Events } from '../../api/event/Event';
+
 // User-level publication.
 // If logged in, then publish PROFILES owned by this user. Otherwise, publish nothing.
 Meteor.publish(Profiles.userPublicationName, function () {
-  return Profiles.collection;
+  if (this.userId) {
+    return Profiles.collection;
+  }
+  return this.ready();
 });
 
 // User-level publication.
 // If logged in, then publish PROFILES owned by this user. Otherwise, publish nothing.
 Meteor.publish(Events.userPublicationName, function () {
-  return Events.collection;
+  if (this.userId) {
+    return Events.collection;
+  }
+  return this.ready();
 });
 
 // User-level publication.
