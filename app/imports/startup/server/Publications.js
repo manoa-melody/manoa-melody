@@ -8,7 +8,7 @@ import { Events } from '../../api/event/Event';
 // If logged in, then publish PROFILES owned by this user. Otherwise, publish nothing.
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
-    return Profiles.collection;
+    return Profiles.collection.find();
   }
   return this.ready();
 });
@@ -17,7 +17,7 @@ Meteor.publish(Profiles.userPublicationName, function () {
 // If logged in, then publish PROFILES owned by this user. Otherwise, publish nothing.
 Meteor.publish(Events.userPublicationName, function () {
   if (this.userId) {
-    return Events.collection;
+    return Events.collection.find();
   }
   return this.ready();
 });
