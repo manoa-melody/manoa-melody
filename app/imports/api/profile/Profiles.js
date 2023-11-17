@@ -15,7 +15,21 @@ class ProfilesCollection {
       image: String,
       displayName: String,
       bio: String,
-      email: String,
+      owner: String,
+      genres: {
+        type: Array,
+      },
+      'genres.$': {
+        type: String,
+        allowedValues: ['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop'],
+      },
+      instruments: {
+        type: Array,
+      },
+      'instruments.$': {
+        type: String,
+        allowedValues: ['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums'],
+      },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
