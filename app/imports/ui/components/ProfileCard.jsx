@@ -12,7 +12,6 @@ const ProfileCard = ({ profile }) => (
     </Card.Header>
     <Card.Body>
       <Card.Text>{profile.bio}</Card.Text>
-
     </Card.Body>
   </Card>
 );
@@ -21,11 +20,10 @@ const ProfileCard = ({ profile }) => (
 ProfileCard.propTypes = {
   profile: PropTypes.shape({
     displayName: PropTypes.string,
-    email: PropTypes.string,
     image: PropTypes.string,
     bio: PropTypes.string,
-    // instruments: PropTypes.arrayOf(PropTypes.oneOf([])),
-    // genres: PropTypes.arrayOf(PropTypes.oneOf([])),
+    genres: PropTypes.arrayOf(PropTypes.oneOf(['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop'])),
+    instruments: PropTypes.arrayOf(PropTypes.oneOf(['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums'])),
   }).isRequired,
 };
 
