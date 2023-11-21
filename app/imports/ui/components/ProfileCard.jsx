@@ -9,10 +9,10 @@ const ProfileCard = ({ profile }) => (
       <Image src={profile.image} width={200} />
       <Card.Title className="mt-2">{profile.displayName}</Card.Title>
       <Card.Subtitle>
-        <ListGroup horizontal className="justify-content-center">
+        <ListGroup horizontal className="justify-content-center align-content-center pb-1">
           {profile.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
         </ListGroup>
-        <ListGroup horizontal className="justify-content-center">
+        <ListGroup horizontal className="justify-content-center align-content-center">
           {profile.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
         </ListGroup>
       </Card.Subtitle>
