@@ -126,3 +126,7 @@ body .text-success {
 body input {
   margin-right: 1em;
 }
+
+.list-group-item {
+  font-size: 14px;
+}
