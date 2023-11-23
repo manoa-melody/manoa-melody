@@ -130,3 +130,26 @@ body input {
 .list-group-item {
   font-size: 14px;
 }
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%;
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 10px solid white;
+}
+
+#bio {
+  margin-top: 50px;
+}
+
+#edit-profile-btn {
+  margin-top: 10px;
+}
