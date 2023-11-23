@@ -24,8 +24,7 @@ EventCard.propTypes = {
     description: PropTypes.string,
     dateTime: PropTypes.string,
     image: PropTypes.string,
-    // instruments: PropTypes.arrayOf(PropTypes.oneOf([])),
-    // genres: PropTypes.arrayOf(PropTypes.oneOf([])),
+    owner: PropTypes.string,
   }).isRequired,
 };
 
