@@ -8,7 +8,11 @@ const EventCard = ({ event }) => (
     <Card.Header className="text-center">
       <Image src={event.image} width={200} />
       <Card.Title className="mt-2">{event.name}</Card.Title>
-      <Card.Subtitle>Insert interests here :P</Card.Subtitle>
+      <Card.Subtitle>
+        {event.location}
+        <br />
+        {event.dateTime.toLocaleDateString('en-US')} at {event.dateTime.toLocaleTimeString('en-US')}
+      </Card.Subtitle>
     </Card.Header>
     <Card.Body>
       <Card.Text>{event.description}</Card.Text>
@@ -29,3 +33,5 @@ EventCard.propTypes = {
 };
 
 export default EventCard;
+
+
