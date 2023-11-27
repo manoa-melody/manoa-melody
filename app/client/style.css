@@ -153,3 +153,11 @@ body input {
 #edit-profile-btn {
   margin-top: 10px;
 }
+
+.text-on-image {
+  position: absolute;
+  bottom: 40%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
