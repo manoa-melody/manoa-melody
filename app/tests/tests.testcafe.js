@@ -11,13 +11,15 @@ const credentials = { username: 'john@foo.com', password: 'changeme' };
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
+/** This test works. -Harvey */
 test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
+/** This test works. -Harvey */
 test('Test that signin and signout work', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoSignInPage(testController); // Works -Harvey
+  await signinPage.signin(testController, credentials.username, credentials.password); // Works -Harvey
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);

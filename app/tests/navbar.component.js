@@ -17,8 +17,8 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-in');
+    await testController.click('#signup');
+    await testController.click('#login');
   }
 
   /** Check that the specified user is currently logged in. */
