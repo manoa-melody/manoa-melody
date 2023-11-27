@@ -17,6 +17,20 @@ class EventsCollection {
       description: String,
       dateTime: Date,
       image: String,
+      genres: {
+        type: Array,
+      },
+      'genres.$': {
+        type: String,
+        allowedValues: ['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop', 'N/A'],
+      },
+      instruments: {
+        type: Array,
+      },
+      'instruments.$': {
+        type: String,
+        allowedValues: ['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums', 'N/A'],
+      },
       owner: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

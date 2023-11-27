@@ -26,9 +26,8 @@
   ],
 
   "defaultEvents": [
-    { "name":  "Event 1", "location": "UH Manoa", "description":  "the description o:", "dateTime": "2023-12-01T09:00:00", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1",
-      "owner": "destinyshishido@gmail.com"},
-    { "name":  "Event 2", "location": "UH Manoa", "description":  "the description o:", "dateTime": "2023-12-01T09:00:00", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1", "owner": "destinyshishido@gmail.com"},
-    { "name":  "Event 3", "location": "UH Manoa", "description":  "the description o:", "dateTime": "2023-12-01T09:00:00", "image": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1", "owner": "destinyshishido@gmail.com"}
+    { "name": "Today's Pop Hits", "location": "UH Mānoa Campus Center", "description": "Come down and enjoy listening to today's pop hits by fellow UH musicians!", "dateTime": "2023-12-01T17:00:00", "image": "https://www.hawaii.edu/news/wp-content/uploads/2019/09/manoa-campus-center.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Pop Music"], "instruments": ["Guitar", "Bass Guitar", "Piano", "Drums"]},
+    { "name": "K-Pop Jams", "location": "UH Mānoa Campus Center", "description": "Hosting a K-Pop listening jam session!", "dateTime": "2023-12-08T15:00:00", "image": "https://uhmccb.weebly.com/uploads/1/4/2/0/14201176/img-3735-1_orig.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Kpop"], "instruments": ["N/A"]},
+    { "name":  "Country at Mānoa", "location": "UH Mānoa Campus Center", "description": "Jam out to country music!", "dateTime": "2023-12-07T13:00:00", "image": "https://civilbeat-aws-dotorg.s3.amazonaws.com/wp-content/2015/09/UH-Manoa-Campus-Center.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Country"], "instruments": ["Guitar", "Bass Guitar", "Piano", "Drums"]}
   ]
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, ListGroup } from 'react-bootstrap';
 
 /** Renders EventCard Card * */
 const EventCard = ({ event }) => (
@@ -12,6 +12,12 @@ const EventCard = ({ event }) => (
         {event.location}
         <br />
         {event.dateTime.toLocaleDateString('en-US')} at {event.dateTime.toLocaleTimeString('en-US')}
+        <ListGroup horizontal className="justify-content-center align-content-center pb-1">
+          {event.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
+        </ListGroup>
+        <ListGroup horizontal className="justify-content-center align-content-center">
+          {event.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
+        </ListGroup>
       </Card.Subtitle>
     </Card.Header>
     <Card.Body>
@@ -26,12 +32,12 @@ EventCard.propTypes = {
     name: PropTypes.string,
     location: PropTypes.string,
     description: PropTypes.string,
-    dateTime: PropTypes.string,
+    dateTime: PropTypes.instanceOf(Date),
     image: PropTypes.string,
     owner: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.oneOf(['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop', 'N/A'])),
+    instruments: PropTypes.arrayOf(PropTypes.oneOf(['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums', 'N/A'])),
   }).isRequired,
 };
 
 export default EventCard;
-
-
