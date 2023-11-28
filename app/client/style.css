@@ -158,6 +158,10 @@ body input {
 }
 
 body .click-here {
+  color: black;
+}
+
+body #click-here {
   color: white;
 }
 
