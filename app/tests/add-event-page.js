@@ -33,6 +33,10 @@ class AddEventPage {
     await testController.click(instrumentsSelector.nth(0));
     await testController.click('#form-submit input.btn.btn-primary');
   }
+
+  async clickSwalButton(testController) {
+    await testController.click('.swal-button--confirm');
+  }
 }
 
 export const addEventPage = new AddEventPage();

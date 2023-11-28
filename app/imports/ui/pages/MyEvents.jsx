@@ -33,13 +33,13 @@ const MyEvents = () => {
   }, []);
 
   return (ready ? (
-    <Container className="py-3">
+    <Container id="myevents-page" className="py-3">
       <Row className="justify-content-center">
         <Col>
           {events.length === 0 && (
             <Col className="text-center">
               <h2>You Have No Events</h2>
-              <h4 className="show-more">Want to add an event? <Link to="/add-event" className="click-here">CLICK HERE</Link></h4>
+              <h4 className="show-more">Want to add an event? <Link to="/add-event" className="#click-here">CLICK HERE</Link></h4>
             </Col>
           )}
           {events.length > 0 && (
@@ -48,7 +48,7 @@ const MyEvents = () => {
                 <h2>My Events</h2>
               </Col>
               <Row xs={1} md={2} lg={3} className="g-4">
-                {events.map((event) => (<Col key={event._id}><EventCard event={event} /></Col>))}
+                {events.map((event) => (<Col className="myevent-card" key={event._id}><EventCard event={event} /></Col>))}
               </Row>
             </div>
           )}
