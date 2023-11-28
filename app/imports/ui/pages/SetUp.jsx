@@ -76,7 +76,7 @@ const SetUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-3">
+    <Container id="setup-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
@@ -87,23 +87,23 @@ const SetUp = ({ location }) => {
               <Card.Body>
                 <Row className="justify-content-center">
                   <Col>
-                    <TextField name="displayName" placeholder="username" />
+                    <TextField id="setup-form-name" name="displayName" placeholder="username" />
                   </Col>
                   <Col>
-                    <TextField name="image" placeholder="image url" />
+                    <TextField id="setup-form-image" name="image" placeholder="image url" />
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col>
+                  <Col id="setup-form-genres">
                     <SelectField name="genres" checkboxes />
                   </Col>
-                  <Col>
+                  <Col id="setup-form-instruments">
                     <AutoField name="instruments" checkboxes />
                   </Col>
                 </Row>
-                <LongTextField name="bio" />
+                <LongTextField id="setup-form-bio" name="bio" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField id="setup-form-submit" />
                 {error === '' ? (
                   ''
                 ) : (

@@ -49,8 +49,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-up');
+    await testController.click('#signup');
   }
 
   /** Go to profiles page. */
