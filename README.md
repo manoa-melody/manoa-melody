@@ -1,3 +1,3 @@
-[![ci-meteor-application-template-react](https://github.com/ics-software-engineering/meteor-application-template-react/actions/workflows/ci.yml/badge.svg)](https://github.com/ics-software-engineering/meteor-application-template-react/actions/workflows/ci.yml)
+![ci-badge](https://github.com/manoa-melody/manoa-melody/workflows/ci-manoa-melody/badge.svg)
 
 For details, please see http://ics-software-engineering.github.io/meteor-application-template-react/
