@@ -4,6 +4,7 @@ import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { profilesPage } from './profiles.page';
 import { eventsPage } from './events.page';
+import { addEventPage } from './add-event-page';
 
 /* global fixture:false, test:false */
 
@@ -42,4 +43,13 @@ test('Test that events page shows up', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoEventsPage(testController);
   await eventsPage.isDisplayed(testController);
+});
+
+test('Test that add event works', async(testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoAddEventPage(testController);
+  await addEventPage.isDisplayed(testController);
+  await addEventPage.addEvent(testController);
 });

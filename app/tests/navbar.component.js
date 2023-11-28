@@ -70,6 +70,16 @@ class NavBar {
     }
     await testController.click('#events-page');
   }
+
+
+  /** Go to add events page. */
+  async gotoAddEventPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#add-event-page');
+  }
 }
 
 export const navBar = new NavBar();
