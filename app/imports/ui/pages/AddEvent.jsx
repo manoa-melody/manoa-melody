@@ -70,33 +70,33 @@ const AddEvent = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="add-event-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Add Event</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" placeholder="Event Name" />
+                <TextField id="form-name" name="name" placeholder="Event Name" />
                 <Row>
                   <Col>
-                    <TextField name="location" placeholder="Event Location" />
+                    <TextField id="form-location" name="location" placeholder="Event Location" />
                   </Col>
                   <Col>
-                    <DateField name="dateTime" label="Date and Time" />
+                    <DateField id="form-dateTime" name="dateTime" label="Date and Time" />
                   </Col>
                 </Row>
-                <LongTextField name="description" placeholder="Event Description" />
-                <TextField name="image" placeholder="Image URL" />
+                <LongTextField id="form-description" name="description" placeholder="Event Description" />
+                <TextField id="form-image" name="image" placeholder="Image URL" />
                 <Row>
                   <Col>
-                    <SelectField name="genres" />
+                    <SelectField id="form-genres" name="genres" />
                   </Col>
                   <Col>
-                    <SelectField name="instruments" />
+                    <SelectField id="form-instruments" name="instruments" />
                   </Col>
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField id="form-submit" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
