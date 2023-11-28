@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Image, Row, Card, ListGroup, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profile/Profiles';
@@ -41,7 +42,7 @@ const MyProfile = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            {profiles.map((profile) => (<h2>{profile.displayName}</h2>))}
+            {profiles.map((profile) => (<h2 key={profile._id}>{profile.displayName}</h2>))}
           </Col>
           <Row xs={1} lg={events.length > 0 ? 3 : 2} className="g-4">
             <Col>
@@ -63,11 +64,14 @@ const MyProfile = () => {
             {events.length > 0 && (
               <Col>
                 <Row lg={1} className="g-4">
-                  {events.map((event) => (
+                  {events.slice(0, 1).map((event) => (
                     <Col key={event._id}>
                       <EventCard event={event} />
                     </Col>
                   ))}
+                </Row>
+                <Row>
+                  <Link className="show-more" to="/my-events">Show More...</Link>
                 </Row>
               </Col>
             )}

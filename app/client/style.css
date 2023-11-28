@@ -131,6 +131,36 @@ body input {
   font-size: 14px;
 }
 
+#bio {
+  margin-top: 50px;
+}
+
+#edit-profile-btn {
+  margin-top: 10px;
+}
+
+.text-on-image {
+  display: flex;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url("/images/campus-manoa-valley.jpg");
+  background-size: cover;
+  flex: 1;
+}
+
+.text-containter {
+  text-align: center;
+}
+
+.show-more {
+  color: white;
+  padding-top: 1em;
+}
+
+body .click-here {
+  color: white;
+}
+
 .image-container {
   position: relative;
   width: 100%;
@@ -144,20 +174,4 @@ body input {
   height: 100%;
   object-fit: cover;
   border: 10px solid white;
-}
-
-#bio {
-  margin-top: 50px;
-}
-
-#edit-profile-btn {
-  margin-top: 10px;
-}
-
-.text-on-image {
-  position: absolute;
-  bottom: 40%;
-  width: 100%;
-  text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
 }
