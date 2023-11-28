@@ -1,10 +1,8 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
 
 const About = () => (
-  <>
-    <Image fluid src="/images/campus-manoa-valley.jpg" />
-    <div className="text-on-image px-2">
+  <div className="text-on-image">
+    <div className="text-containter">
       <h1 className="pb-4">
         Welcome to Mānoa Melody!
       </h1>
@@ -21,7 +19,7 @@ const About = () => (
         Upload and explore musical events hosted by students and the university and meet new people!
       </h2>
     </div>
-  </>
+  </div>
 );
 
 export default About;
