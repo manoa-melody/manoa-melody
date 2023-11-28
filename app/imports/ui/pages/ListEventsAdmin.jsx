@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row} from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Events } from '../../api/event/Event';
 import EventCard from '../components/EventCard';
