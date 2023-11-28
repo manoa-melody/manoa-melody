@@ -45,7 +45,7 @@ test('Test that events page shows up', async (testController) => {
   await eventsPage.isDisplayed(testController);
 });
 
-test.only('Test that add event works', async(testController) => {
+test('Test that add event works', async(testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
