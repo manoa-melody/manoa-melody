@@ -26,8 +26,8 @@
   ],
 
   "defaultEvents": [
-    { "name": "Today's Pop Hits", "location": "UH Mānoa Campus Center", "description": "Come down and enjoy listening to today's pop hits by fellow UH musicians!", "dateTime": "2023-12-01T17:00:00", "image": "https://www.hawaii.edu/news/wp-content/uploads/2019/09/manoa-campus-center.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Pop Music"], "instruments": ["Guitar", "Bass Guitar", "Piano", "Drums"]},
-    { "name": "K-Pop Jams", "location": "UH Mānoa Campus Center", "description": "Hosting a K-Pop listening jam session!", "dateTime": "2023-12-08T15:00:00", "image": "https://uhmccb.weebly.com/uploads/1/4/2/0/14201176/img-3735-1_orig.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Kpop"], "instruments": ["N/A"]},
-    { "name":  "Country at Mānoa", "location": "UH Mānoa Campus Center", "description": "Jam out to country music!", "dateTime": "2023-12-07T13:00:00", "image": "https://civilbeat-aws-dotorg.s3.amazonaws.com/wp-content/2015/09/UH-Manoa-Campus-Center.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Country"], "instruments": ["Guitar", "Bass Guitar", "Piano", "Drums"]}
+    { "name": "Today's Pop Hits", "location": "UH Mānoa Campus Center", "description": "Come down and enjoy listening to today's pop hits by fellow UH musicians!", "dateTime": "2023-12-01T17:00:00.000Z", "image": "https://www.hawaii.edu/news/wp-content/uploads/2019/09/manoa-campus-center.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Pop Music"], "instruments": ["Guitar", "Bass Guitar", "Piano", "Drums"]},
+    { "name": "K-Pop Jams", "location": "UH Mānoa Campus Center", "description": "Hosting a K-Pop listening jam session!", "dateTime": "2023-12-08T15:00:00.000Z", "image": "https://uhmccb.weebly.com/uploads/1/4/2/0/14201176/img-3735-1_orig.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Kpop"], "instruments": ["N/A"]},
+    { "name":  "Country at Mānoa", "location": "UH Mānoa Campus Center", "description": "Jam out to country music!", "dateTime": "2023-12-07T13:00:00.000Z", "image": "https://civilbeat-aws-dotorg.s3.amazonaws.com/wp-content/2015/09/UH-Manoa-Campus-Center.jpg", "owner": "destinyshishido@gmail.com", "genres": ["Country"], "instruments": ["Guitar", "Bass Guitar", "Piano", "Drums"]}
   ]
 }
