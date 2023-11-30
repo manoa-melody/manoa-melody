@@ -52,7 +52,7 @@ const MyProfile = () => {
                     <Image src={profile.image} className="profile-picture" />
                   </div>
                   <div id="edit-profile-btn">
-                    <Button variant="light">Edit Profile</Button>
+                    <Button href={`/edit/${profile._id}`} variant="light">Edit Profile</Button>
                   </div>
                   <div id="bio">
                     <h4>BIO</h4>
