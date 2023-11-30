@@ -17,8 +17,8 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-in');
+    await testController.click('#signup');
+    await testController.click('#login');
   }
 
   /** Check that the specified user is currently logged in. */
@@ -51,6 +51,42 @@ class NavBar {
     }
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
+  }
+
+  /** Go to profiles page. */
+  async gotoProfilesPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#profiles-page');
+  }
+
+  /** Go to events page. */
+  async gotoEventsPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#events-page');
+  }
+
+  /** Go to add events page. */
+  async gotoAddEventPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#add-event-page');
+  }
+
+  /** Go to my events page. */
+  async gotoMyEventPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#myevents-page');
   }
 }
 

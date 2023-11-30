@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, ListGroup } from 'react-bootstrap';
 
 /** Renders EventCard Card * */
 const EventCard = ({ event }) => (
@@ -8,7 +8,17 @@ const EventCard = ({ event }) => (
     <Card.Header className="text-center">
       <Image src={event.image} width={200} />
       <Card.Title className="mt-2">{event.name}</Card.Title>
-      <Card.Subtitle>Insert interests here :P</Card.Subtitle>
+      <Card.Subtitle>
+        {event.location}
+        <br />
+        {event.dateTime.toDateString('en-US')} at {event.dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' })}
+        <ListGroup horizontal className="justify-content-center align-content-center pb-1">
+          {event.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
+        </ListGroup>
+        <ListGroup horizontal className="justify-content-center align-content-center">
+          {event.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
+        </ListGroup>
+      </Card.Subtitle>
     </Card.Header>
     <Card.Body>
       <Card.Text>{event.description}</Card.Text>
@@ -22,10 +32,11 @@ EventCard.propTypes = {
     name: PropTypes.string,
     location: PropTypes.string,
     description: PropTypes.string,
-    dateTime: PropTypes.string,
+    dateTime: PropTypes.instanceOf(Date),
     image: PropTypes.string,
-    // instruments: PropTypes.arrayOf(PropTypes.oneOf([])),
-    // genres: PropTypes.arrayOf(PropTypes.oneOf([])),
+    owner: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.oneOf(['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop', 'N/A'])),
+    instruments: PropTypes.arrayOf(PropTypes.oneOf(['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums', 'N/A'])),
   }).isRequired,
 };
 

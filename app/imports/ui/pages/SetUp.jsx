@@ -14,17 +14,32 @@ const schema = new SimpleSchema({
   bio: String,
   genres: {
     type: Array,
+    custom() {
+      const { value } = this;
+      if (!value || value.length === 0) {
+        return 'At least one genre is required';
+      }
+      return undefined;
+    },
   },
   'genres.$': {
     type: String,
-    allowedValues: ['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop'],
+    allowedValues: ['Rock', 'Pop Music', 'Hip Hop', 'Electronic', 'Jazz', 'Country', 'Alternative', 'Indie', 'Punk Rock', 'Kpop', 'N/A'],
   },
+
   instruments: {
     type: Array,
+    custom() {
+      const { value } = this;
+      if (!value || value.length === 0) {
+        return 'At least one instrument is required';
+      }
+      return undefined;
+    },
   },
   'instruments.$': {
     type: String,
-    allowedValues: ['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums'],
+    allowedValues: ['Guitar', 'Piano', 'Violin', 'Flute', 'Saxophone', 'Clarinet', 'Trumpet', 'Cello', 'Bass Guitar', 'Drums', 'N/A'],
   },
 });
 
@@ -40,7 +55,7 @@ const SetUp = ({ location }) => {
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
     const { image, displayName, bio, genres, instruments } = doc;
-    const owner = Meteor.userId();
+    const owner = Meteor.user().username;
     Profiles.collection.insert(
       { image, displayName, bio, genres, instruments, owner },
       (err) => {
@@ -55,7 +70,7 @@ const SetUp = ({ location }) => {
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
-  const { from } = location?.state || { from: { pathname: '/home' } };
+  const { from } = location?.state || { from: { pathname: '/my-profile' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;
