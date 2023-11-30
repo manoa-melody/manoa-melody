@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profile/Profiles';
-import ProfileCard from '../components/ProfileCard';
+import ProfileCardAdmin from '../components/ProfileCardAdmin';
 
 /* Renders a table containing all of the Event documents. Use <ProfileItemAdmin> to render each row. */
 const ListProfilesAdmin = () => {
@@ -29,7 +29,7 @@ const ListProfilesAdmin = () => {
             <h2>Explore Profiles</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {profiles.map((profile) => (<Col key={profile._id}><ProfileCard profile={profile} /></Col>))}
+            {profiles.map((profile) => (<Col key={profile._id}><ProfileCardAdmin profile={profile} /></Col>))}
           </Row>
         </Col>
       </Row>

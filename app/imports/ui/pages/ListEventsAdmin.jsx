@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Events } from '../../api/event/Event';
-import EventCard from '../components/EventCard';
+import EventCardAdmin from '../components/EventCardAdmin';
 
 /* Renders a table containing all of the Event documents. Use <EventItemAdmin> to render each row. */
 const ListEventsAdmin = () => {
@@ -29,7 +29,7 @@ const ListEventsAdmin = () => {
             <h2>Explore Events</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {events.map((event) => (<Col key={event._id}><EventCard event={event} /></Col>))}
+            {events.map((event) => (<Col key={event._id}><EventCardAdmin event={event} /></Col>))}
           </Row>
         </Col>
       </Row>
