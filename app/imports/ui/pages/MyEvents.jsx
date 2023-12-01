@@ -39,7 +39,7 @@ const MyEvents = () => {
           {events.length === 0 && (
             <Col className="text-center">
               <h2>You Have No Events</h2>
-              <h4 className="show-more">Want to add an event? <Link to="/add-event" className="#click-here">CLICK HERE</Link></h4>
+              <h4 className="show-more">Want to add an event? <Link to="/add-event" id="click-here">CLICK HERE</Link></h4>
             </Col>
           )}
           {events.length > 0 && (

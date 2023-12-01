@@ -25,6 +25,7 @@ import ListEventsAdmin from '../pages/ListEventsAdmin';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
 import EditEvents from '../pages/EditEvents';
+import { Profiles } from '../../api/profile/Profiles';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,15 +44,15 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/home" element={<ProtectedRoute><ManoaMelody /></ProtectedRoute>} />
-          <Route path="/setup" element={<ProtectedRoute><SetUp /></ProtectedRoute>} />
-          <Route path="/profiles" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} />
-          <Route path="/events" element={<ProtectedRoute><ListEvents /></ProtectedRoute>} />
-          <Route path="/add-event" element={<ProtectedRoute><AddEvent /></ProtectedRoute>} />
-          <Route path="/edit-profile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
-          <Route path="/edit-event/:_id" element={<ProtectedRoute><EditEvents /></ProtectedRoute>} />
-          <Route path="/my-events" element={<ProtectedRoute><MyEvents /></ProtectedRoute>} />
-          <Route path="/my-profile" element={<ProtectedRoute><MyProfile /></ProtectedRoute>} />
+          <Route path="/home" element={<NoProfileProtect><ManoaMelody /></NoProfileProtect>} />
+          <Route path="/setup" element={<ProfileProtect><SetUp /></ProfileProtect>} />
+          <Route path="/profiles" element={<NoProfileProtect><ListProfiles /></NoProfileProtect>} />
+          <Route path="/events" element={<NoProfileProtect><ListEvents /></NoProfileProtect>} />
+          <Route path="/add-event" element={<NoProfileProtect><AddEvent /></NoProfileProtect>} />
+          <Route path="/edit-profile/:_id" element={<NoProfileProtect><EditProfile /></NoProfileProtect>} />
+          <Route path="/edit-event/:_id" element={<NoProfileProtect><EditEvents /></NoProfileProtect>} />
+          <Route path="/my-events" element={<NoProfileProtect><MyEvents /></NoProfileProtect>} />
+          <Route path="/my-profile" element={<NoProfileProtect><MyProfile /></NoProfileProtect>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/admin-events" element={<AdminProtectedRoute ready={ready}><ListEventsAdmin /></AdminProtectedRoute>} />
           <Route path="/admin-profiles" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
@@ -65,13 +66,48 @@ const App = () => {
 };
 
 /*
- * ProtectedRoute (see React Router v6 sample)
- * Checks for Meteor login before routing to the requested page, otherwise goes to signin page.
- * @param {any} { component: Component, ...rest }
+ * Prevents the logged in user from creating another profile.
  */
-const ProtectedRoute = ({ children }) => {
-  const isLogged = Meteor.userId() !== null;
-  return isLogged ? children : <Navigate to="/signin" />;
+const ProfileProtect = ({ children }) => {
+  const { ready, isLogged, hasProfile } = useTracker(() => {
+    const isLoggedIn = Meteor.userId() !== null;
+    // Gets the username logged into the website
+    const user = Meteor.user();
+    // Check if the user exists before accessing user().username
+    const owner = user ? user.username : null;
+    // UseTracker to subscribe to the user's profile data
+    const subscription = Meteor.subscribe(Profiles.userPublicationName);
+    const rdy = subscription.ready();
+    const userHasProfile = () => (user ? !!Profiles.collection.findOne({ owner: owner }) : false);
+    return {
+      ready: rdy,
+      isLogged: isLoggedIn,
+      hasProfile: userHasProfile,
+    };
+  }, []);
+  // eslint-disable-next-line no-nested-ternary
+  return ready ? (isLogged && !hasProfile() ? children : <Navigate to="/my-profile" />) : <LoadingSpinner />;
+};
+
+const NoProfileProtect = ({ children }) => {
+  const { ready, isLogged, hasProfile } = useTracker(() => {
+    const isLoggedIn = Meteor.userId() !== null;
+    // Gets the username logged into the website
+    const user = Meteor.user();
+    // Check if the user exists before accessing user().username
+    const owner = user ? user.username : null;
+    // UseTracker to subscribe to the user's profile data
+    const subscription = Meteor.subscribe(Profiles.userPublicationName);
+    const rdy = subscription.ready();
+    const userHasProfile = () => (user ? !!Profiles.collection.findOne({ owner: owner }) : false);
+    return {
+      ready: rdy,
+      isLogged: isLoggedIn,
+      hasProfile: userHasProfile,
+    };
+  }, []);
+  // eslint-disable-next-line no-nested-ternary
+  return ready ? (isLogged && !hasProfile() ? <Navigate to="/setup" /> : children) : <LoadingSpinner />;
 };
 
 /**
@@ -92,11 +128,20 @@ const AdminProtectedRoute = ({ ready, children }) => {
 };
 
 // Require a component and location to be passed to each ProtectedRoute.
-ProtectedRoute.propTypes = {
+ProfileProtect.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 };
 
-ProtectedRoute.defaultProps = {
+ProfileProtect.defaultProps = {
+  children: <Landing />,
+};
+
+// Require a component and location to be passed to each ProtectedRoute.
+NoProfileProtect.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+NoProfileProtect.defaultProps = {
   children: <Landing />,
 };
 
