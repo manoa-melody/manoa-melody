@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField, AutoField, HiddenField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField, HiddenField, DateField } from 'uniforms-bootstrap5';
 import { useParams } from 'react-router';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Navigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Events } from '../../api/event/Event';
 
-const bridge = new SimpleSchema2Bridge(Profiles.schema);
+const bridge = new SimpleSchema2Bridge(Events.schema);
 
 /**
  * EditProfile component is to edit the users profile
@@ -34,14 +34,14 @@ const EditEvents = ({ location }) => {
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (data) => {
-    const { name, location, description, dateTime, image, genres, instruments } = data;
-    Events.collection.update(_id, { $set: { name, location, description, dateTime, image, genres, instruments } }, (error) => (error ?
+    const { name, locations, description, dateTime, image, genres, instruments } = data;
+    Events.collection.update(_id, { $set: { name, locations, description, dateTime, image, genres, instruments } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       setRedirectToRef(true)));
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
-  const { from } = location?.state || { from: { pathname: '//my-events' } };
+  const { from } = location?.state || { from: { pathname: '/my-events' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;

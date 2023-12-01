@@ -24,6 +24,7 @@ import MyEvents from '../pages/MyEvents';
 import ListEventsAdmin from '../pages/ListEventsAdmin';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
+import EditEvents from '../pages/EditEvents';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/events" element={<ProtectedRoute><ListEvents /></ProtectedRoute>} />
           <Route path="/add-event" element={<ProtectedRoute><AddEvent /></ProtectedRoute>} />
           <Route path="/edit-profile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path="/edit-event/:_id" element={<ProtectedRoute><EditEvents /></ProtectedRoute>} />
           <Route path="/my-events" element={<ProtectedRoute><MyEvents /></ProtectedRoute>} />
           <Route path="/my-profile" element={<ProtectedRoute><MyProfile /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />

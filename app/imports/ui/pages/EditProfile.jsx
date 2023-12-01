@@ -52,7 +52,7 @@ const EditProfile = ({ location }) => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2>Set Up</h2>
+            <h2>Edit My Profile</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
