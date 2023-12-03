@@ -48,7 +48,7 @@ const EditProfile = ({ location }) => {
   }
   /* Display the EditProfile form. Redirect to MyProfile after submit */
   return ready ? (
-    <Container className="py-3">
+    <Container id="edit-profile" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
@@ -59,23 +59,23 @@ const EditProfile = ({ location }) => {
               <Card.Body>
                 <Row className="justify-content-center">
                   <Col>
-                    <TextField name="displayName" placeholder="username" />
+                    <TextField id="edit-displayName" name="displayName" placeholder="username" />
                   </Col>
                   <Col>
-                    <TextField name="image" placeholder="image url" />
+                    <TextField id="edit-image" name="image" placeholder="image url" />
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
-                  <Col>
+                  <Col id="edit-genres">
                     <SelectField name="genres" checkboxes />
                   </Col>
-                  <Col>
+                  <Col id="edit-instruments">
                     <AutoField name="instruments" checkboxes />
                   </Col>
                 </Row>
-                <LongTextField name="bio" />
+                <LongTextField id="edit-bio" name="bio" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField id="edit-submit-btn" />
                 <HiddenField name="owner" />
               </Card.Body>
             </Card>

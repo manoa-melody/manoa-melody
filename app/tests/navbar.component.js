@@ -87,6 +87,15 @@ class NavBar {
     }
     await testController.click('#myevents-page');
   }
+
+  /** Go to my profile page. */
+  async gotoMyProfilePage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#my-profile');
+  }
 }
 
 export const navBar = new NavBar();
