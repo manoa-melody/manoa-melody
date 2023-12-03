@@ -9,6 +9,8 @@ import { addEventPage } from './add-event-page';
 import { myEventsPage } from './myevents.page';
 import { signupPage } from './signup.page';
 import { setupPage } from './setup.page';
+import { editProfilePage } from './edit-profile.page';
+import { myProfilePage } from './my-profile.page';
 
 /* global fixture:false, test:false */
 
@@ -79,7 +81,6 @@ test('Test that my events works', async (testController) => {
     await navBar.gotoMyEventPage(testController);
   }
   await myEventsPage.hasEvents(testController);
-
 });
 
 /** This test works. -Harvey */
@@ -87,4 +88,15 @@ test('Test that signup page works and creates a profile', async (testController)
   await navBar.gotoSignUpPage(testController); // Go to signup page
   await signupPage.signupUser(testController, newCredentials.username, newCredentials.password); // Sign up new user
   await setupPage.setupNewProfile(testController); // Set up new profile
+});
+
+test.only('Test that edit my profile page works', async (testController) => {
+  await navBar.gotoSignInPage(testController); // Clicks the sign in on the navbar
+  /* Signs in using the credentials */
+  await signinPage.signin(testController, newCredentials.username, newCredentials.password);
+  await navBar.isLoggedIn(testController, newCredentials.username); // Checks to see if logged in
+  await navBar.gotoMyProfilePage(testController); // Goes to my profile page
+  await editProfilePage.clickEditButton(testController); // Clicks the edit profile button
+  await editProfilePage.changeProfile(testController); // Change the profile
+  await myProfilePage.isDisplayed(testController); // After clicking submit, should go back to my profile
 });
