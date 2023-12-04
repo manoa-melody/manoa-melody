@@ -90,7 +90,7 @@ test('Test that signup page works and creates a profile', async (testController)
   await setupPage.setupNewProfile(testController); // Set up new profile
 });
 
-test.only('Test that edit my profile page works', async (testController) => {
+test('Test that edit my profile page works', async (testController) => {
   await navBar.gotoSignInPage(testController); // Clicks the sign in on the navbar
   /* Signs in using the credentials */
   await signinPage.signin(testController, newCredentials.username, newCredentials.password);
@@ -99,4 +99,13 @@ test.only('Test that edit my profile page works', async (testController) => {
   await editProfilePage.clickEditButton(testController); // Clicks the edit profile button
   await editProfilePage.changeProfile(testController); // Change the profile
   await myProfilePage.isDisplayed(testController); // After clicking submit, should go back to my profile
+});
+
+test('Test that my profile page works', async (testController) => {
+  await navBar.gotoSignInPage(testController); // Clicks the sign in on the navbar
+  /* Signs in using the credentials */
+  await signinPage.signin(testController, newCredentials.username, newCredentials.password);
+  await navBar.isLoggedIn(testController, newCredentials.username); // Checks to see if logged in
+  await navBar.gotoMyProfilePage(testController); // Goes to my profile page
+  await myProfilePage.isDisplayed(testController); // My profile page should be displayed
 });
