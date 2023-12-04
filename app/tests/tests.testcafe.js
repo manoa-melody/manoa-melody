@@ -56,33 +56,6 @@ test('Test that events page shows up', async (testController) => {
   await eventsPage.isDisplayed(testController);
 });
 
-test('Test that add event works', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.isLoggedIn(testController, credentials.username);
-  await navBar.gotoAddEventPage(testController);
-  await addEventPage.isDisplayed(testController);
-  await addEventPage.addEvent(testController);
-});
-
-/** This Test work */
-test('Test that my events works', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.isLoggedIn(testController, credentials.username);
-  await navBar.gotoMyEventPage(testController);
-  await myEventsPage.isDisplayed(testController);
-  const eventsCount = await myEventsCard.count;
-  if (eventsCount === 0) {
-    await myEventsPage.toAddEventPage(testController);
-    await addEventPage.isDisplayed(testController);
-    await addEventPage.addEvent(testController);
-    await addEventPage.clickSwalButton(testController);
-    await navBar.gotoMyEventPage(testController);
-  }
-  await myEventsPage.hasEvents(testController);
-});
-
 /** This test works. -Harvey */
 test('Test that signup page works and creates a profile', async (testController) => {
   await navBar.gotoSignUpPage(testController); // Go to signup page
@@ -108,4 +81,30 @@ test('Test that my profile page works', async (testController) => {
   await navBar.isLoggedIn(testController, newCredentials.username); // Checks to see if logged in
   await navBar.gotoMyProfilePage(testController); // Goes to my profile page
   await myProfilePage.isDisplayed(testController); // My profile page should be displayed
+});
+
+test('Test that add event works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, newCredentials.username, newCredentials.password);
+  await navBar.isLoggedIn(testController, newCredentials.username);
+  await navBar.gotoAddEventPage(testController);
+  await addEventPage.isDisplayed(testController);
+  await addEventPage.addEvent(testController);
+});
+
+test('Test that my events works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, newCredentials.username, newCredentials.password);
+  await navBar.isLoggedIn(testController, newCredentials.username);
+  await navBar.gotoMyEventPage(testController);
+  await myEventsPage.isDisplayed(testController);
+  const eventsCount = await myEventsCard.count;
+  if (eventsCount === 0) {
+    await myEventsPage.toAddEventPage(testController);
+    await addEventPage.isDisplayed(testController);
+    await addEventPage.addEvent(testController);
+    await addEventPage.clickSwalButton(testController);
+    await navBar.gotoMyEventPage(testController);
+  }
+  await myEventsPage.hasEvents(testController);
 });
