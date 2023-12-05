@@ -28,7 +28,7 @@ const NavBar = () => {
               <Nav.Link id="events-page" as={NavLink} to="/events" key="events">Events</Nav.Link>,
               <Nav.Link id="profiles-page" as={NavLink} to="/profiles" key="profiles">Profiles</Nav.Link>,
               <Nav.Link id="myevents-page" as={NavLink} to="/my-events" key="my-events">My Events</Nav.Link>,
-              <Nav.Link as={NavLink} to="/my-profile" key="my-profile" id="my-profile">My Profile</Nav.Link>
+              <Nav.Link as={NavLink} to="/my-profile" key="my-profile" id="my-profile">My Profile</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <NavDropdown title="Admin">
