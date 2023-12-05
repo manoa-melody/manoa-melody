@@ -5,7 +5,7 @@ import { Events } from '../../api/event/Event';
 
 // Initialize the database with a default profile document.
 const addProfile = (profile) => {
-  console.log(`  Adding: ${profile.firstName} ${profile.lastName} (${profile.email})`);
+  console.log(`  Adding: ${profile.displayName} (${profile.owner})`);
   Profiles.collection.insert(profile);
 };
 
