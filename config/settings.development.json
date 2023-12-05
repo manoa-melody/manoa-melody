@@ -11,14 +11,7 @@
     { "email": "shedrickulibas@gmail.com", "password": "changeme" },
     { "email": "destinyshishido@gmail.com", "password": "changeme" }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ],
-
+  
   "defaultProfiles": [
     { "displayName": "Kristine Orpilla", "email":  "kristineorpilla@gmail.com", "image":  "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1xw:0.74975xh;center,top&resize=1200:*", "bio":  "i am a musician B)", "owner": "kristineorpilla@gmail.com", "genres":  ["Pop Music", "Country", "Kpop"], "instruments": ["Guitar"]},
     { "displayName": "Shedrick Ulibas", "email":  "shedrickulibas@gmail.com", "image":  "https://pyxis.nymag.com/v1/imgs/6a9/2a3/6c37ee37a2473f12b6dc4a703a50381993-09-clifford.2x.rsquare.w330.jpg", "bio":  "i am also a musician B)", "owner": "shedrickulibas@gmail.com", "genres":  ["Indie", "Kpop"], "instruments": ["Bass Guitar"]},
