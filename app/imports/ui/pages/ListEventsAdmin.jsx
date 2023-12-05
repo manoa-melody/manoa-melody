@@ -8,7 +8,6 @@ import EventCardAdmin from '../components/EventCardAdmin';
 
 /* Renders a table containing all of the Event documents. Use <EventItemAdmin> to render each row. */
 const ListEventsAdmin = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, events } = useTracker(() => {
     // Get access to Event documents.
     const subscription = Meteor.subscribe(Events.adminPublicationName);

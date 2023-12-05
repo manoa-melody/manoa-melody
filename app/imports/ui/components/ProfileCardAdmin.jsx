@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { Card, Image, ListGroup, Button } from 'react-bootstrap';
 
-/** Renders ProfileCard Card * */
+/** Renders ProfileCard Card for the admin */
 const ProfileCardAdmin = ({ profile }) => {
   const handleDelete = () => {
     swal({

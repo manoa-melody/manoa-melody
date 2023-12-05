@@ -6,9 +6,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profile/Profiles';
 import ProfileCardAdmin from '../components/ProfileCardAdmin';
 
-/* Renders a table containing all of the Event documents. Use <ProfileItemAdmin> to render each row. */
+/* Renders a table containing all of the Profile documents */
 const ListProfilesAdmin = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, profiles } = useTracker(() => {
     // Get access to Profile documents.
     const subscription = Meteor.subscribe(Profiles.adminPublicationName);

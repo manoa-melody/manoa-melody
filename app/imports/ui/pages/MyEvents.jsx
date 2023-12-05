@@ -7,9 +7,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import EventCard from '../components/EventCard';
 import { Events } from '../../api/event/Event';
 
-/* Renders a table containing all of the Profile documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the users events. */
 const MyEvents = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, events } = useTracker(() => {
     // Gets the username logged into the website
     const user = Meteor.user();

@@ -8,9 +8,8 @@ import { Profiles } from '../../api/profile/Profiles';
 import { Events } from '../../api/event/Event';
 import EventCard from '../components/EventCard';
 
-/* Renders a table containing all of the Profile documents. Use <StuffItem> to render each row. */
+/* Renders a table containing of the users profile documents. */
 const MyProfile = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, profiles, events } = useTracker(() => {
     // Gets the username logged into the website
     const user = Meteor.user();

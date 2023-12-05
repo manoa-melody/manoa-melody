@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField, HiddenField, DateField } from 'uniforms-bootstrap5';
 import { useParams } from 'react-router';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Events } from '../../api/event/Event';
@@ -17,8 +16,6 @@ const bridge = new SimpleSchema2Bridge(Events.schema);
 /**
  * EditProfile component is to edit the users profile
  */
-
-/* Subscribe to the Profiles collection * */
 const EditEvents = ({ location }) => {
   const { _id } = useParams();
   const { doc, ready } = useTracker(() => {
