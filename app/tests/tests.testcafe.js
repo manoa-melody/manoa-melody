@@ -108,3 +108,21 @@ test('Test that my events works', async (testController) => {
   }
   await myEventsPage.hasEvents(testController);
 });
+
+test('Test that delete event works in my events', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, newCredentials.username, newCredentials.password);
+  await navBar.isLoggedIn(testController, newCredentials.username);
+  await navBar.gotoMyEventPage(testController);
+  await myEventsPage.isDisplayed(testController);
+  const eventsCount = await myEventsCard.count;
+  if (eventsCount === 0) {
+    await myEventsPage.toAddEventPage(testController);
+    await addEventPage.isDisplayed(testController);
+    await addEventPage.addEvent(testController);
+    await addEventPage.clickSwalButton(testController);
+    await navBar.gotoMyEventPage(testController);
+  }
+  await myEventsPage.hasEvents(testController);
+  await myEventsPage.deleteEvent(testController);
+});

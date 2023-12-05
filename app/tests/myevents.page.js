@@ -22,6 +22,13 @@ class MyEventsPage {
   async hasEvents(testController) {
     await testController.expect(this.eventCards.count).gt(0);
   }
+
+  /** Tests to see if the delete event button works */
+  async deleteEvent(testController) {
+    await testController.click('.btn-danger');
+    await testController.click('.swal-button--danger');
+    await testController.expect(this.eventCards.count).eql(0);
+  }
 }
 
 export const myEventsPage = new MyEventsPage();
