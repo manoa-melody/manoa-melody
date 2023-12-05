@@ -17,6 +17,7 @@ import { myProfilePage } from './my-profile.page';
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
 const myEventsCard = Selector('.myevent-card');
+const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 
 /** New user credentials for signup test */
 const newCredentials = { username: 'harvey@foo.com', password: 'changeme' };
@@ -125,4 +126,18 @@ test('Test that delete event works in my events', async (testController) => {
   }
   await myEventsPage.hasEvents(testController);
   await myEventsPage.deleteEvent(testController);
+});
+
+test('Test that logging into admin works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(testController, adminCredentials.username);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
+test('Test that admin events page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(testController, adminCredentials.username);
 });
