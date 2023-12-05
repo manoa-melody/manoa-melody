@@ -2,11 +2,37 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Button, Card, Image, ListGroup } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 /** Renders EventCard Card * */
 const EventCard = ({ event }) => {
   const user = Meteor.user();
   const owner = user ? user.username : null;
+
+  const handleDelete = () => {
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this event!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          Meteor.call('event.delete', event._id, (error) => {
+            if (error) {
+              swal('Error', error.message, 'error');
+            } else {
+              swal('Event deleted!', {
+                icon: 'success',
+              });
+              // Here, you might want to implement additional logic
+              // like redirecting the user or updating the parent component's state
+            }
+          });
+        }
+      });
+  };
   return (
     <Card className="h-100">
       <Card.Header className="text-center">
@@ -26,7 +52,8 @@ const EventCard = ({ event }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>{event.description}</Card.Text>
-        {event.owner === owner && <Button href={`/edit-event/${event._id}`} variant="outline-success">Edit Event</Button>}
+        {event.owner === owner && <Button href={`/edit-event/${event._id}`} variant="outline-success" className="mx-1">Edit Event</Button>}
+        {event.owner === owner && <Button className="mx-1" variant="danger" onClick={handleDelete}>Delete Event</Button>}
       </Card.Body>
     </Card>
   );
