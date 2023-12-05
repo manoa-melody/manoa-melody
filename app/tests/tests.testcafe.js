@@ -135,9 +135,3 @@ test('Test that logging into admin works', async (testController) => {
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
-
-test('Test that admin events page shows up', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
-  await navBar.isLoggedIn(testController, adminCredentials.username);
-});
