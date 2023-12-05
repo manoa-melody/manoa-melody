@@ -21,14 +21,14 @@ const ListEventsAdmin = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container id="admin-events" className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>Explore Events</h2>
+            <h2>Events (Admin)</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {events.map((event) => (<Col key={event._id}><EventCardAdmin event={event} /></Col>))}
+            {events.map((event) => (<Col className="admin-event-cards" key={event._id}><EventCardAdmin event={event} /></Col>))}
           </Row>
         </Col>
       </Row>

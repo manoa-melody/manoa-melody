@@ -11,6 +11,7 @@ import { signupPage } from './signup.page';
 import { setupPage } from './setup.page';
 import { editProfilePage } from './edit-profile.page';
 import { myProfilePage } from './my-profile.page';
+import { adminEventsPage } from './adminevents.page';
 
 /* global fixture:false, test:false */
 
@@ -134,4 +135,15 @@ test('Test that logging into admin works', async (testController) => {
   await navBar.isLoggedIn(testController, adminCredentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test that delete admin event and is displayed works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(testController, adminCredentials.username);
+  await navBar.gotoAdminEventsPage(testController);
+  await adminEventsPage.isDisplayed(testController);
+  await adminEventsPage.deleteEvent(testController);
+  await adminEventsPage.clickSwalConfirm(testController);
+  await adminEventsPage.checkNumEvents(testController);
 });
