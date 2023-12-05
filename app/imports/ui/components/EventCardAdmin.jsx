@@ -51,7 +51,7 @@ const EventCardAdmin = ({ event }) => {
       <Card.Body>
         <Card.Text>{event.description}</Card.Text>
         <footer className="blockquote-footer">{event.owner}</footer>
-        <Button variant="danger" onClick={handleDelete}>Delete Event</Button>
+        <Button id="event-delete" variant="danger" onClick={handleDelete}>Delete Event</Button>
       </Card.Body>
     </Card>
   );

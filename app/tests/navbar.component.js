@@ -102,7 +102,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#amin-events-page');
+    await testController.click('#admin-events-page');
   }
 }
 
