@@ -44,11 +44,14 @@ const schema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(schema);
 
+/**
+ * Renders the SetUp profile page
+ */
 const SetUp = ({ location }) => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
 
-  // Handle SignUp submission. Create user account and a profile entry, then redirect to the home page.
+  // Handle SetUp submission. Create user account and a profile entry, then redirect to the my profile page.
   const submit = (doc) => {
     const { image, displayName, bio, genres, instruments } = doc;
     const owner = Meteor.user().username;
@@ -65,9 +68,9 @@ const SetUp = ({ location }) => {
     );
   };
 
-  // Display the signup form. Redirect to add page after successful registration and login.
+  // Display the setup form. Redirect to myprofile page after successful registration and login.
   const { from } = location?.state || { from: { pathname: '/my-profile' } };
-  // If correct authentication, redirect to from: page instead of signup screen
+  // If correct authentication, redirect to from: page instead of setup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;
   }

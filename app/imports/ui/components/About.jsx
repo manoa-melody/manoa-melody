@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Renders the landing page
+ */
 const About = () => (
   <div className="text-on-image">
     <div className="text-containter">

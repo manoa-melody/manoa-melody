@@ -5,9 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Landing from '../pages/Landing';
 import ManoaMelody from '../pages/ManoaMelody';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -53,7 +51,6 @@ const App = () => {
           <Route path="/edit-event/:_id" element={<NoProfileProtect><EditEvents /></NoProfileProtect>} />
           <Route path="/my-events" element={<NoProfileProtect><MyEvents /></NoProfileProtect>} />
           <Route path="/my-profile" element={<NoProfileProtect><MyProfile /></NoProfileProtect>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/admin-events" element={<AdminProtectedRoute ready={ready}><ListEventsAdmin /></AdminProtectedRoute>} />
           <Route path="/admin-profiles" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
@@ -89,6 +86,9 @@ const ProfileProtect = ({ children }) => {
   return ready ? (isLogged && !hasProfile() ? children : <Navigate to="/my-profile" />) : <LoadingSpinner />;
 };
 
+/*
+ * Prevents the logged in user from accessing web pages if no profile has been created.
+ */
 const NoProfileProtect = ({ children }) => {
   const { ready, isLogged, hasProfile } = useTracker(() => {
     const isLoggedIn = Meteor.userId() !== null;
@@ -133,7 +133,7 @@ ProfileProtect.propTypes = {
 };
 
 ProfileProtect.defaultProps = {
-  children: <Landing />,
+  children: <ManoaMelody />,
 };
 
 // Require a component and location to be passed to each ProtectedRoute.
@@ -142,7 +142,7 @@ NoProfileProtect.propTypes = {
 };
 
 NoProfileProtect.defaultProps = {
-  children: <Landing />,
+  children: <ManoaMelody />,
 };
 
 // Require a component and location to be passed to each AdminProtectedRoute.
@@ -153,7 +153,7 @@ AdminProtectedRoute.propTypes = {
 
 AdminProtectedRoute.defaultProps = {
   ready: false,
-  children: <Landing />,
+  children: <ManoaMelody />,
 };
 
 export default App;
