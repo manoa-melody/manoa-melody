@@ -47,7 +47,7 @@ const ProfileCardAdmin = ({ profile }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>{profile.bio}</Card.Text>
-        <Button variant="danger" onClick={handleDelete}>Delete Profile</Button>
+        <Button id="profile-delete" variant="danger" onClick={handleDelete}>Delete Profile</Button>
       </Card.Body>
     </Card>
   );

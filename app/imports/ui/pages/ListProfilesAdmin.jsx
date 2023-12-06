@@ -21,14 +21,14 @@ const ListProfilesAdmin = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container id="admin-profiles" className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
             <h2>Explore Profiles</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {profiles.map((profile) => (<Col key={profile._id}><ProfileCardAdmin profile={profile} /></Col>))}
+            {profiles.map((profile) => (<Col className="admin-profile-card" key={profile._id}><ProfileCardAdmin profile={profile} /></Col>))}
           </Row>
         </Col>
       </Row>

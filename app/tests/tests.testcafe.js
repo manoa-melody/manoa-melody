@@ -12,6 +12,7 @@ import { setupPage } from './setup.page';
 import { editProfilePage } from './edit-profile.page';
 import { myProfilePage } from './my-profile.page';
 import { adminEventsPage } from './adminevents.page';
+import { adminProfilesPage } from './adminprofiles.page';
 
 /* global fixture:false, test:false */
 
@@ -146,4 +147,18 @@ test('Test that delete admin event and is displayed works', async (testControlle
   await adminEventsPage.deleteEvent(testController);
   await adminEventsPage.clickSwalConfirm(testController);
   await adminEventsPage.checkNumEvents(testController);
+});
+
+test('Test that admin delete profile works', async (testController) => {
+  // Sign in as admin
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.isLoggedIn(testController, adminCredentials.username);
+  // Go to profiles page
+  await navBar.gotoAdminProfilesPage(testController);
+  await adminProfilesPage.isDisplayed(testController);
+  // Delete a profile
+  await adminProfilesPage.deleteProfile(testController);
+  await adminProfilesPage.clickSwalConfirm(testController);
+  await adminProfilesPage.checkNumProfiles(testController);
 });
