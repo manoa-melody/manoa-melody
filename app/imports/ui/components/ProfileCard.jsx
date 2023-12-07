@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import { Button, Card, Image, ListGroup } from 'react-bootstrap';
+import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 
 /** Renders ProfileCard Card * */
 const ProfileCard = ({ profile }) => {
@@ -13,12 +13,18 @@ const ProfileCard = ({ profile }) => {
         <Image src={profile.image} width={200} />
         <Card.Title className="mt-2">{profile.displayName}</Card.Title>
         <Card.Subtitle>
-          <ListGroup className="justify-content-center align-content-center pb-1">
-            {profile.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
-          </ListGroup>
-          <ListGroup className="justify-content-center align-content-center">
-            {profile.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
-          </ListGroup>
+          <Row>
+            <Col>
+              <ListGroup className="justify-content-center align-content-center pb-1">
+                {profile.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
+              </ListGroup>
+            </Col>
+            <Col>
+              <ListGroup className="justify-content-center align-content-center">
+                {profile.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
+              </ListGroup>
+            </Col>
+          </Row>
         </Card.Subtitle>
       </Card.Header>
       <Card.Body>
