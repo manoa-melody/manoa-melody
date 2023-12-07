@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import { Button, Card, Image, ListGroup } from 'react-bootstrap';
+import { Button, Card, Image, ListGroup, Row, Col } from 'react-bootstrap';
 import swal from 'sweetalert';
 
 /** Renders EventCard Card * */
@@ -42,12 +42,18 @@ const EventCard = ({ event }) => {
           {event.location}
           <br />
           {event.dateTime.toDateString('en-US')} at {event.dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' })}
-          <ListGroup horizontal className="justify-content-center align-content-center pb-1">
-            {event.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
-          </ListGroup>
-          <ListGroup horizontal className="justify-content-center align-content-center">
-            {event.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
-          </ListGroup>
+          <Row>
+            <Col>
+              <ListGroup className="justify-content-center align-content-center pb-1">
+                {event.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
+              </ListGroup>
+            </Col>
+            <Col>
+              <ListGroup className="justify-content-center align-content-center">
+                {event.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
+              </ListGroup>
+            </Col>
+          </Row>
         </Card.Subtitle>
       </Card.Header>
       <Card.Body>
