@@ -83,7 +83,7 @@ const MyProfile = () => {
                         <Card.Subtitle>{profile.displayName} plays the instrument(s)...</Card.Subtitle>
                       </Card.Header>
                       <Card.Body>
-                        <ListGroup horizontal className="justify-content-center">
+                        <ListGroup className="justify-content-center">
                           {profile.instruments.map((instrument) => (
                             <ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>
                           ))}
@@ -99,7 +99,7 @@ const MyProfile = () => {
                         <Card.Subtitle>{profile.displayName} likes the genre(s)...</Card.Subtitle>
                       </Card.Header>
                       <Card.Body>
-                        <ListGroup horizontal className="justify-content-center">
+                        <ListGroup className="justify-content-center">
                           {profile.genres.map((genre) => (
                             <ListGroup.Item key={genre}>{genre}</ListGroup.Item>
                           ))}

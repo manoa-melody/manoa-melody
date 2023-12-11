@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { Card, Image, ListGroup, Button } from 'react-bootstrap';
+import { Card, Image, ListGroup, Button, Row, Col } from 'react-bootstrap';
 
 /** Renders ProfileCard Card for the admin */
 const ProfileCardAdmin = ({ profile }) => {
@@ -37,12 +37,18 @@ const ProfileCardAdmin = ({ profile }) => {
         <Image src={profile.image} width={200} />
         <Card.Title className="mt-2">{profile.displayName}</Card.Title>
         <Card.Subtitle>
-          <ListGroup horizontal className="justify-content-center align-content-center pb-1">
-            {profile.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
-          </ListGroup>
-          <ListGroup horizontal className="justify-content-center align-content-center">
-            {profile.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
-          </ListGroup>
+          <Row>
+            <Col>
+              <ListGroup className="justify-content-center align-content-center pb-1">
+                {profile.genres.map((genre) => (<ListGroup.Item key={genre}>{genre}</ListGroup.Item>))}
+              </ListGroup>
+            </Col>
+            <Col>
+              <ListGroup className="justify-content-center align-content-center">
+                {profile.instruments.map((instrument) => (<ListGroup.Item key={instrument}>{instrument}</ListGroup.Item>))}
+              </ListGroup>
+            </Col>
+          </Row>
         </Card.Subtitle>
       </Card.Header>
       <Card.Body>
