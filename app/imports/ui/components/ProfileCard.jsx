@@ -29,6 +29,7 @@ const ProfileCard = ({ profile }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>{profile.bio}</Card.Text>
+        <footer className="blockquote-footer">{profile.owner}</footer>
         {profile.owner === owner && <Button href={`/edit-profile/${profile._id}`} variant="outline-success">Edit Profile</Button> }
       </Card.Body>
     </Card>

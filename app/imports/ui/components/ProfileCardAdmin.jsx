@@ -53,6 +53,7 @@ const ProfileCardAdmin = ({ profile }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>{profile.bio}</Card.Text>
+        <footer className="blockquote-footer">{event.owner}</footer>
         <Button id="profile-delete" variant="danger" onClick={handleDelete}>Delete Profile</Button>
       </Card.Body>
     </Card>
